@@ -40,7 +40,7 @@ const users = [
     }
 ]
 
-users[1].email
+console.log(users[1].email)
 
 // console.log(tinderUser);
 
@@ -66,15 +66,10 @@ const course = {
 
 const {courseInstructor: instructor} = course
 // console.log(courseInstructor);
-console.log(instructor);
+// console.log(instructor);
 
 // {
 //     "name": "daniyal",
 //     "coursename": "js in hindi",
 //     "price": "free"
 // }
-
-[
-    {}
-]
-
