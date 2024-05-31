@@ -26,19 +26,19 @@ user.username = "dani"
 // }
 // chai()
 
-// const chai = () => {
-//     let username = "daniyal"
-//     console.log(this)
-// }
-// chai()
+const chai = () => {
+    let username = "daniyal"
+    console.log(this)
+}
+chai()
 
 // const addTwo = (num1, num2) =>  num1 + num2
 
-// return keyword used when curly brackets used => explicit retun
+// return keyword not used when curly brackets used => explicit retun
 
 // const addTwo = (num1, num2) =>  (num1 + num2)
 
 const addTwo = (num1, num2) =>  ({username: "daniyal"})
 
-console.log(addTwo(5,6))
+// console.log(addTwo(5,6))
 
