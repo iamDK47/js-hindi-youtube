@@ -12,6 +12,7 @@ const user = {
 user.username = "dani"
 // user.print()
 // console.log(this)
+// console.log(user)
 
 // function chai (){
 //     let username = "daniyal"
@@ -20,17 +21,17 @@ user.username = "dani"
 
 // chai() //(this) cannot be used without being in object here
 
-// const chai = function(){
-//     let username = "daniyal"
-//     console.log(this.username)
-// }
-// chai()
-
-const chai = () => {
+const chai = function(){
     let username = "daniyal"
-    console.log(this)
+    console.log(this.username)
 }
 chai()
+
+// const chai = () => {
+//     let username = "daniyal"
+//     console.log(this)
+// }
+// chai()
 
 // const addTwo = (num1, num2) =>  num1 + num2
 
