@@ -36,5 +36,4 @@ for (let index = 1; index <= 20; index++) {
         // using continue will not print 5, without continue 5 will be printed
     }
     console.log(`value of i is ${index}`)
-
 }
