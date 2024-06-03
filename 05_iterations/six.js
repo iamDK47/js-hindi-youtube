@@ -6,7 +6,7 @@ const myCoding = ["js", "ruby", "Py", "html", "css"]
 // })
 // console.log(values)
 
-// forEach does not return value
+// forEach does not return value++++++++
 
 const myNums = [1,2,3,4,5,6,7,8,9,10]
 

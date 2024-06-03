@@ -21,4 +21,4 @@ for (const key in programming) {
     console.log(programming[key])
 }
 // main diff bw forin & forof is direct printing of keys and values
-// main diff bw object and array is arr has automatic keys from 0
+// main diff bw object and array is arr has automatic keys from 0 here
