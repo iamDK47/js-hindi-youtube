@@ -8,6 +8,8 @@
 ## project 1
  
 ```javascript
-
+const buttons = document.querySelectorAll('.button')
+console.log(buttons)
+// const body = document.querySelector('.)
 
 ```
