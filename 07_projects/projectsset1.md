@@ -92,3 +92,16 @@ form.addEventListener('submit', function (event) {
 
 
 ```
+
+## Projects 3 solution
+
+``` javascript
+
+setInterval(function () {
+  let date = new Date();
+  const clock = document.getElementById('clock');
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
+
+
+```
