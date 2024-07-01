@@ -90,9 +90,7 @@ form.addEventListener('submit', function (event) {
   }
 });
 
-
 ```
-
 ## Projects 3 solution
 
 ``` javascript
@@ -102,6 +100,5 @@ setInterval(function () {
   const clock = document.getElementById('clock');
   clock.innerHTML = date.toLocaleTimeString();
 }, 1000);
-
 
 ```
