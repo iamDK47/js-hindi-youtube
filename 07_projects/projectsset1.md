@@ -102,3 +102,40 @@ setInterval(function () {
 }, 1000);
 
 ```
+
+## Project 4 solution
+
+``` javascript
+
+const randomNumber = parseInt(Math.random() * 1 + 1);
+
+const input = document.querySelector('#guessField')
+const button = document.querySelector('#subt')
+const guesses = document.querySelector('.guesses')
+const lastResult = document.querySelector('.lastResult')
+const lowOrHi = document.querySelector('.lowOrHi')
+
+const p = document.createElement('p')
+let Game = true
+
+button.addEventListener('submit' , function (event) {
+  event.preventDefault()
+  const guess = parseInt(input.value)
+  validateGuess(guess)
+})
+
+function validateGuess(guess){
+  if (guess > 0 || guess < 100 || isNaN(guess)) {
+    checkGuess(guess)
+  } else {
+    lowOrHi.innerHTML = ('Add valid number')
+  }
+}
+
+function checkGuess(guess){
+  if(guess > randomNumber){
+    p.innderHTML = ('guess is too ')
+  }
+}
+
+```
