@@ -109,33 +109,53 @@ setInterval(function () {
 
 const randomNumber = parseInt(Math.random() * 1 + 1);
 
-const input = document.querySelector('#guessField')
-const button = document.querySelector('#subt')
-const guesses = document.querySelector('.guesses')
-const lastResult = document.querySelector('.lastResult')
-const lowOrHi = document.querySelector('.lowOrHi')
+const input = document.querySelector('#guessField');
+const button = document.querySelector('#subt');
+const guesses = document.querySelector('.guesses');
+const lastResult = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
 
-const p = document.createElement('p')
-let Game = true
+const p = document.createElement('p');
+let Game = true;
+let guessTry = 1;
 
-button.addEventListener('submit' , function (event) {
-  event.preventDefault()
-  const guess = parseInt(input.value)
-  validateGuess(guess)
-})
+button.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const guess = parseInt(input.value);
+  validateGuess(guess);
+});
 
-function validateGuess(guess){
-  if (guess > 0 || guess < 100 || isNaN(guess)) {
-    checkGuess(guess)
+function validateGuess(guess) {
+  if (guess > 0 || guess < 100) {
+    checkGuess(guess);
+  } else if (isNaN(guess)) {
+    displayMessage('enter valid number');
   } else {
-    lowOrHi.innerHTML = ('Add valid number')
+    displayMessage('enter valid number');
   }
 }
 
-function checkGuess(guess){
-  if(guess > randomNumber){
-    p.innderHTML = ('guess is too ')
+function checkGuess(guess) {
+  if (guess > randomNumber) {
+    displayMessage('guess is high');
+  } else if (guess < randomNumber) {
+    displayMessage('guess is low');
+  } else {
+    newGame()
   }
 }
+
+function newGame(guess) {
+  if (guess === randomNumber) {
+    lowOrHi.innerHTML = 'u guessed the correct number';
+    
+    let game = false;
+  }
+}
+
+function displayMessage(message) {
+  lowOrHi.innerHTML = `<h2>${message}<h2/>`;
+}
+
 
 ```
