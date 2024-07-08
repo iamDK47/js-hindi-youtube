@@ -114,6 +114,7 @@ const button = document.querySelector('#subt');
 const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector('.lastResult');
 const lowOrHi = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
 
 const p = document.createElement('p');
 let Game = true;
@@ -121,7 +122,7 @@ let guessTry = 1;
 let prevGuess = [];
 
 if (Game) {
-  button.addEventListener('submit', function (event) {
+  button.addEventListener('click', function (event) {
     event.preventDefault();
     const guess = parseInt(input.value);
     validateGuess(guess);
@@ -133,7 +134,7 @@ function validateGuess(guess) {
     displayMessage('Enter valid number');
   } else {
     prevGuess.push(guess);
-    if (guessTry === 11) {
+    if (guessTry === 10) {
       displayMessage('no more tries, u lose');
       endGame();
     } else {
@@ -156,7 +157,7 @@ function checkGuess(guess) {
 
 function displayGuess(guess) {
   input.value = '';
-  guesses.innerHTML += `${prevGuess}`;
+  guesses.innerHTML = `${prevGuess},  `;
   guessTry++;
   lastResult.innerHTML = `${11 - guessTry}`;
 }
@@ -166,14 +167,26 @@ function displayMessage(message) {
 }
 
 function endGame() {
-  input.setAttribute('disabled');
+  input.value = '';
+  input.setAttribute('disabled', '');
   Game = false;
-  p.createElement('button');
-  p.innerHTML = 'click to start again';
-  p.appendChild();
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="newGame">Start new Game</h2>`;
+  startOver.appendChild(p);
+  newGame();
 }
 
-function newGame() {}
+function newGame() {
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', function (event) {
+    const randomNumber = parseInt(Math.random() * 1 + 1);
+    prevGuess = [];
+    guessTry = 1;
+    startOver.removeChild(p);
+    startOver.removeAttribute(p);
+    Game = true;
+  });
+}
 
 
 ```
