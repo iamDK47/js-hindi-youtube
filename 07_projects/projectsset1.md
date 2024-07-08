@@ -118,20 +118,28 @@ const lowOrHi = document.querySelector('.lowOrHi');
 const p = document.createElement('p');
 let Game = true;
 let guessTry = 1;
+let prevGuess = [];
 
-button.addEventListener('submit', function (event) {
-  event.preventDefault();
-  const guess = parseInt(input.value);
-  validateGuess(guess);
-});
+if (Game) {
+  button.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const guess = parseInt(input.value);
+    validateGuess(guess);
+  });
+}
 
 function validateGuess(guess) {
-  if (guess > 0 || guess < 100) {
-    checkGuess(guess);
-  } else if (isNaN(guess)) {
-    displayMessage('enter valid number');
+  if (guess >= 100 || guess <= 0 || isNaN(guess)) {
+    displayMessage('Enter valid number');
   } else {
-    displayMessage('enter valid number');
+    prevGuess.push(guess);
+    if (guessTry === 11) {
+      displayMessage('no more tries, u lose');
+      endGame();
+    } else {
+      checkGuess(guess);
+      displayGuess(guess);
+    }
   }
 }
 
@@ -140,22 +148,32 @@ function checkGuess(guess) {
     displayMessage('guess is high');
   } else if (guess < randomNumber) {
     displayMessage('guess is low');
-  } else {
-    newGame()
+  } else if (guess === randomNumber) {
+    displayMessage('congrats u win');
+    newGame();
   }
 }
 
-function newGame(guess) {
-  if (guess === randomNumber) {
-    lowOrHi.innerHTML = 'u guessed the correct number';
-    
-    let game = false;
-  }
+function displayGuess(guess) {
+  input.value = '';
+  guesses.innerHTML += `${prevGuess}`;
+  guessTry++;
+  lastResult.innerHTML = `${11 - guessTry}`;
 }
 
 function displayMessage(message) {
   lowOrHi.innerHTML = `<h2>${message}<h2/>`;
 }
+
+function endGame() {
+  input.setAttribute('disabled');
+  Game = false;
+  p.createElement('button');
+  p.innerHTML = 'click to start again';
+  p.appendChild();
+}
+
+function newGame() {}
 
 
 ```
