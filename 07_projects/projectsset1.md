@@ -102,7 +102,6 @@ setInterval(function () {
 }, 1000);
 
 ```
-
 ## Project 4 solution
 
 ``` javascript
@@ -194,8 +193,6 @@ function newGame() {
 
 ``` javascript
 
-// generate a random color
-
 const randomColor = function () {
   let hex = '0123456789ABCDEF';
   let color = '#';
@@ -205,16 +202,23 @@ const randomColor = function () {
   return color;
 };
 
-const intervalID = setInterval(function () {
-  document.body.style.backgroundColor = randomColor();
-}, 1000);
+let IntervalId;
+const changeColor = function () {
+  if (!IntervalId) {
+    IntervalId = setInterval(color, 1000);
+  }
+  function color() {
+    document.body.style.backgroundColor = randomColor();
+  }
+};
+const stopColor = function () {
+  clearInterval(IntervalId);
+  IntervalId = null;
+};
 
-function startChangingColor () {
-}
+document.querySelector('#start').addEventListener('click', changeColor);
 
-document.querySelector('#start').addEventListener('click',  startChangingColor );
-document.querySelector('#stop').addEventListener('click', function () {
-  clearInterval(intervalID);
-});
+document.querySelector('#stop').addEventListener('click', stopColor);
+
 
 ```
