@@ -189,6 +189,14 @@ function newGame() {
 
 ```
 
+# Project 5 solution
+
+``` javascript
+
+
+
+```
+
 # Project 6 solution
 
 ``` javascript
